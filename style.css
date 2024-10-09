@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(30deg,rgb(13, 232, 13),blue,red);
+    background-image: url(Assets/img7.jpg);
     width: 100vw;
     height: 100vh;
     background-size: cover;
