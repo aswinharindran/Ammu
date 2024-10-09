@@ -1,0 +1,75 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(30deg,rgb(13, 232, 13),blue,red);
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment:  fixed;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.container{
+    background-size: cover;
+    background-attachment:  fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    
+}
+.imgcontainer{
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+.imgcontainer img{
+    margin: 6px;
+    width: 180px;
+    height: 300px;
+}
+.imgcontainer{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.imgcontainer .item{
+    transition: .5s;
+    filter: brightness(0);
+}
+.imgcontainer .item:hover{
+   
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+.imgcontainer .item:hover  + * {
+    filter: brightness(.6);
+    transform: translateZ(150px) rotatey(40deg) ;
+}
+.imgcontainer .item:hover  + * + *{
+    filter: brightness(.4);
+    transform: translateZ(70px) rotatey(20deg) ;
+}
+.imgcontainer .item:hover  + * + * + *{
+    filter: brightness(.2);
+    transform: translateZ(30) rotatey(10deg) ;
+}
+.imgcontainer .item:has(+*:hover)  {
+    filter: brightness(.6);
+    transform: translateZ(150px) rotatey(-40deg) ;
+}
+.imgcontainer .item:has(+*+*:hover)  {
+    filter: brightness(.4);
+    transform: translateZ(70px) rotatey(-20deg) ;
+}
+.imgcontainer .item:has(+*+*+*:hover)  {
+    filter: brightness(.2);
+    transform: translateZ(30px) rotatey(-10deg) ;
+}
